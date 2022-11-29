@@ -1,0 +1,18 @@
+0. Before you begin delete the "venv" folder and the database too if you wish to recreate the database
+
+1. Set up your own vertual environment for your server
+    python3 -m venv venv
+
+2. Activate your virtual environment 
+    source venv/bin/activate
+     - deactivate (to exit out of the flask app)
+
+3. Install the dependencies 
+    pip3 install -r requirements.txt 
+
+4. let the flask app know where the directory is located 
+    export FLASK_APP=app.py 
+
+5. Run the flask application 
+    flask run 
+     - Press CTRL+C to quit
