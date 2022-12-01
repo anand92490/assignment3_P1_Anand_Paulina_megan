@@ -1,7 +1,6 @@
 from flask import request, jsonify, Blueprint #blueprint helps to modularize different routes for you
 from my_app import db
 from my_app.catalog.models import Product, Category
-import json
 
 catalog = Blueprint('catalog', __name__)
 
@@ -27,19 +26,32 @@ def products():
         }
     return jsonify(res)
 
-@catalog.route('/product-create', methods=['POST',])
-def creat_product():
+
+
+@catalog.route('/create-products', methods=['POST',])
+def create_products():
+    import json
     data = json.loads(request.data)
-    name = request.json.get('name')
-    price = request.json.get('price')
-    categ_name = request.json.get('category')
-    category = Category.query.filter_by(name=categ_name).first()
-    if not category:
-        category = Category(categ_name)
-    product = Product(name, price, category)
-    db.session.add(product)
-    db.session.commit()
-    return 'Product created.'
+
+    for items in data:
+
+        key = data[items]
+
+        name = key['name']
+        price = key['price']
+        categ_name = key['category']
+        
+        category = Category.query.filter_by(name=categ_name).first()
+        if not category:
+            category = Category(categ_name)
+
+        product = Product(name, price, category)
+
+        db.session.add(product)
+        db.session.commit()
+            
+    return "Products created."
+
 
 @catalog.route('/category-create', methods=['POST', ])
 def create_category():
