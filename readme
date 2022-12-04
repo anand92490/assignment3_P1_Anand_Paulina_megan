@@ -16,3 +16,36 @@
 5. Run the flask application 
     flask run 
      - Press CTRL+C to quit
+
+
+1. add multiple products - method POST - http://127.0.0.1:5000/create-products
+    - data
+
+{
+    "product1": 
+    { 
+        "name" : "Shampoo", 
+        "price" : 8.50 ,
+        "category" : "Health and Beauty"
+    },
+    "product2":
+    {
+        "name" : "HP Ink", 
+        "price" : 24.50,
+        "category" : "Office"
+    },
+    "product3":
+    {
+        "name" : "SSD", 
+        "price" : 230.00 ,
+        "category" : "Electronics"
+    },
+    "product4":
+    {
+        "name" : "T-shirt", 
+        "price" : 29.99,
+        "category" : "Clothing"
+    }
+}
+
+2.  show products - method GET - http://127.0.0.1:5000/products
