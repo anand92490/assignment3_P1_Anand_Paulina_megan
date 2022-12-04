@@ -1,3 +1,5 @@
+## Flask application with db in sqlalchemy
+
 0. Before you begin delete the "venv" folder and the database too if you wish to recreate the database
 
 1. Set up your own vertual environment for your server
